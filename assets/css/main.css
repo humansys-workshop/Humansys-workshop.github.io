@@ -3109,6 +3109,12 @@ p {
 		transform: translate(-50%, -50%);
 	}
 
+	#header .header-img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
 	#header {
 		padding: 5em 5em 1em 5em ;
 		text-align: center;
@@ -3233,6 +3239,15 @@ p {
 					padding: 3.5em 1em 0.5em 1em ;
 				}
 
+		}
+
+		@media (max-width: 768px) {
+			#header .header-img {
+				width: 100%;
+				height: auto;
+				max-height: 200px; /* Adjust the maximum height as needed */
+				object-fit: cover; /* Ensures the image covers the area nicely */
+			}
 		}
 
 		body.is-preload #header.alt > * {
