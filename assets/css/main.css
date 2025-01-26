@@ -1,6 +1,7 @@
-@import url(fontawesome-all.min.css);
-@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400';
-
+/* @import url(fontawesome-all.min.css); */
+/* @import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400'; */
+@import url('https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css');
+@import url('https://fonts.font.im/css?family=Source+Sans+Pro:300,400');
 /*
 	Stellar by HTML5 UP
 	html5up.net | @ajlkn
