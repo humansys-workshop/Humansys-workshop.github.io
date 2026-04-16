@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>HumanSys Photos</title>
+	<meta
+		name="description"
+		content="Photo collections from HumanSys workshop editions."
+	/>
+	<link rel="canonical" href="https://humansys-workshop.github.io/workshop-photos/" />
+	<link rel="stylesheet" href="../2026/styles.css" />
+</head>
+<body class="gallery-page">
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<nav class="section-nav" aria-label="Page navigation">
+		<div class="shell">
+			<a href="../index.html">Workshop Editions</a>
+			<a href="#collections">Collections</a>
+		</div>
+	</nav>
+
+		<header class="page-head">
+			<div class="shell">
+				<p class="eyebrow">HumanSys Photos</p>
+				<h1>Workshop Photos</h1>
+				<p class="page-meta">Photo collections from HumanSys workshop editions</p>
+			</div>
+		</header>
+
+	<main id="main">
+		<section id="collections" class="section">
+			<div class="shell">
+				<div class="photo-collections">
+					<article class="photo-collection-card" id="humansys-2025">
+						<button
+							class="photo-mosaic"
+							type="button"
+							data-gallery-open="humansys-2025"
+							aria-label="Open HumanSys 2025 photo gallery"
+						>
+							<figure class="photo-mosaic-main">
+								<img
+									src="./2025/humansys-2025-photo-01.jpg"
+									alt="Group photo from HumanSys 2025"
+								/>
+							</figure>
+							<div class="photo-mosaic-stack" aria-hidden="true">
+								<img
+									src="./2025/humansys-2025-photo-02.jpg"
+									alt=""
+								/>
+								<img
+									src="./2025/humansys-2025-photo-03.jpg"
+									alt=""
+								/>
+							</div>
+						</button>
+						<div class="photo-collection-copy">
+							<p class="panel-label">2025 Collection</p>
+							<h2>HumanSys 2025</h2>
+							<div class="photo-collection-meta">
+								<span>3 photos</span>
+								<span>Workshop moments</span>
+							</div>
+							<div class="photo-collection-actions">
+								<button type="button" class="button" data-gallery-open="humansys-2025">Open Gallery</button>
+								<a class="button button-secondary" href="../WS/2025/index.html">Open HumanSys 2025 Page</a>
+							</div>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<div class="gallery-modal" id="galleryModal" hidden>
+		<div class="gallery-backdrop" data-gallery-close></div>
+				<div class="gallery-dialog" id="galleryDialog" role="dialog" aria-modal="true" aria-labelledby="galleryTitle">
+					<button class="gallery-close" type="button" data-gallery-close aria-label="Close photo gallery">
+						Close
+					</button>
+					<div class="gallery-stage">
+						<div class="gallery-toolbar" aria-label="Image controls">
+							<button class="gallery-tool" type="button" data-gallery-fullscreen aria-label="Toggle fullscreen">Full</button>
+							<button class="gallery-tool" type="button" data-gallery-zoom-out aria-label="Zoom out">-</button>
+							<button class="gallery-tool gallery-tool-readout" type="button" data-gallery-zoom-reset aria-label="Reset zoom">
+								100%
+							</button>
+							<button class="gallery-tool" type="button" data-gallery-zoom-in aria-label="Zoom in">+</button>
+						</div>
+						<button
+							class="gallery-arrow gallery-arrow-prev"
+							type="button"
+					data-gallery-prev
+					aria-label="Previous photo"
+				>
+					&#8249;
+				</button>
+				<div class="gallery-slider-window" id="gallerySliderWindow">
+					<div class="gallery-slider-track" id="galleryTrack"></div>
+				</div>
+				<button
+					class="gallery-arrow gallery-arrow-next"
+					type="button"
+					data-gallery-next
+					aria-label="Next photo"
+				>
+					&#8250;
+				</button>
+			</div>
+				<div class="gallery-meta-card">
+					<div class="gallery-meta-copy">
+						<p class="gallery-counter" id="galleryCounter">01 / 03</p>
+						<h2 id="galleryTitle">HumanSys 2025</h2>
+						<p class="gallery-subcaption" id="gallerySubtitle">&nbsp;</p>
+					</div>
+					<div class="gallery-meta-actions">
+						<button
+							class="gallery-filmstrip-toggle"
+							type="button"
+							data-gallery-filmstrip-toggle
+							aria-expanded="false"
+						>
+							Show strip
+						</button>
+						<div class="gallery-dots" id="galleryDots" aria-label="Gallery slides"></div>
+					</div>
+				</div>
+				<div class="gallery-thumbnails-wrap" id="galleryThumbsWrap">
+					<div class="gallery-thumbnails" id="galleryThumbs"></div>
+				</div>
+			</div>
+		</div>
+
+	<footer class="site-footer">
+		<div class="shell footer-layout">
+			<div>
+				<p class="footer-title">HumanSys Photos</p>
+				<p class="footer-text">Photo collections from HumanSys workshop editions.</p>
+			</div>
+			<a class="footer-link" href="../index.html">Workshop Editions</a>
+		</div>
+	</footer>
+
+	<script>
+		const galleries = {
+			"humansys-2025": {
+				title: "HumanSys 2025",
+				subtitle: "",
+				slides: [
+					{
+						src: "./2025/humansys-2025-photo-01.jpg",
+						alt: "Group photo from HumanSys 2025",
+					},
+					{
+						src: "./2025/humansys-2025-photo-02.jpg",
+						alt: "Attendees celebrating together at HumanSys 2025",
+					},
+					{
+						src: "./2025/humansys-2025-photo-03.jpg",
+						alt: "Another group photo from HumanSys 2025",
+					},
+				],
+			},
+		};
+
+		const body = document.body;
+		const modal = document.getElementById("galleryModal");
+		const dialog = document.getElementById("galleryDialog");
+		const track = document.getElementById("galleryTrack");
+		const dots = document.getElementById("galleryDots");
+		const thumbs = document.getElementById("galleryThumbs");
+		const counter = document.getElementById("galleryCounter");
+		const title = document.getElementById("galleryTitle");
+		const subtitle = document.getElementById("gallerySubtitle");
+		const sliderWindow = document.getElementById("gallerySliderWindow");
+		const openButtons = document.querySelectorAll("[data-gallery-open]");
+		const closeButtons = document.querySelectorAll("[data-gallery-close]");
+		const prevButton = document.querySelector("[data-gallery-prev]");
+		const nextButton = document.querySelector("[data-gallery-next]");
+		const fullscreenButton = document.querySelector("[data-gallery-fullscreen]");
+		const zoomInButton = document.querySelector("[data-gallery-zoom-in]");
+		const zoomOutButton = document.querySelector("[data-gallery-zoom-out]");
+		const zoomResetButton = document.querySelector("[data-gallery-zoom-reset]");
+		const filmstripToggleButton = document.querySelector("[data-gallery-filmstrip-toggle]");
+
+		let activeGalleryName = "";
+		let activeGallery = null;
+		let activeIndex = 0;
+		let closeTimer = null;
+		let touchStartX = 0;
+		let zoomScale = 1;
+		let zoomOffsetX = 0;
+		let zoomOffsetY = 0;
+		let isDraggingZoom = false;
+		let dragStartX = 0;
+		let dragStartY = 0;
+		let dragOffsetX = 0;
+		let dragOffsetY = 0;
+		let suppressFigureClick = false;
+		let uiHidden = false;
+		let filmstripOpen = false;
+
+		function renderGallery(name) {
+			activeGalleryName = name;
+			activeGallery = galleries[name];
+			track.innerHTML = "";
+			dots.innerHTML = "";
+			thumbs.innerHTML = "";
+
+			activeGallery.slides.forEach((slide, index) => {
+				const slideNode = document.createElement("div");
+				slideNode.className = "gallery-slide";
+				slideNode.innerHTML =
+					'<figure class="gallery-slide-figure">' +
+					'<img class="gallery-slide-image" src="' + slide.src + '" alt="' + slide.alt + '" loading="lazy" />' +
+					"</figure>";
+				track.appendChild(slideNode);
+
+				const figure = slideNode.querySelector(".gallery-slide-figure");
+				figure.addEventListener("dblclick", () => {
+					if (slideNode !== track.children[activeIndex]) {
+						return;
+					}
+					setZoom(zoomScale > 1 ? 1 : 2.2);
+				});
+				figure.addEventListener("wheel", handleWheelZoom, { passive: false });
+				figure.addEventListener("pointerdown", handleZoomPointerDown);
+				figure.addEventListener("pointermove", handleZoomPointerMove);
+				figure.addEventListener("pointerup", handleZoomPointerUp);
+				figure.addEventListener("pointerleave", handleZoomPointerUp);
+				figure.addEventListener("pointercancel", handleZoomPointerUp);
+				figure.addEventListener("click", () => {
+					if (slideNode !== track.children[activeIndex]) {
+						return;
+					}
+
+					if (suppressFigureClick) {
+						suppressFigureClick = false;
+						return;
+					}
+
+					setUIHidden(!uiHidden);
+				});
+
+				const dot = document.createElement("button");
+				dot.className = "gallery-dot";
+				dot.type = "button";
+				dot.setAttribute("aria-label", "Open photo " + (index + 1));
+				dot.addEventListener("click", () => updateSlide(index));
+				dots.appendChild(dot);
+
+				const thumb = document.createElement("button");
+				thumb.className = "gallery-thumbnail";
+				thumb.type = "button";
+				thumb.setAttribute("aria-label", "Preview photo " + (index + 1));
+				thumb.innerHTML = '<img src="' + slide.src + '" alt="' + slide.alt + '" loading="lazy" />';
+				thumb.addEventListener("click", () => updateSlide(index));
+				thumbs.appendChild(thumb);
+			});
+
+			resetZoom(true);
+			setFilmstrip(false);
+			setUIHidden(false);
+			syncFullscreenButton();
+		}
+
+		function getCurrentSlideNode() {
+			return track.children[activeIndex] || null;
+		}
+
+		function getCurrentFigure() {
+			return getCurrentSlideNode()?.querySelector(".gallery-slide-figure") || null;
+		}
+
+		function getCurrentImage() {
+			return getCurrentSlideNode()?.querySelector(".gallery-slide-image") || null;
+		}
+
+		function getImageFitSize(image, figure) {
+			if (!image || !figure || !image.naturalWidth || !image.naturalHeight) {
+				return { width: figure?.clientWidth || 0, height: figure?.clientHeight || 0 };
+			}
+
+			const imageRatio = image.naturalWidth / image.naturalHeight;
+			const figureRatio = figure.clientWidth / figure.clientHeight;
+
+			if (imageRatio > figureRatio) {
+				const width = figure.clientWidth;
+				return { width, height: width / imageRatio };
+			}
+
+			const height = figure.clientHeight;
+			return { width: height * imageRatio, height };
+		}
+
+		function clampZoomOffsets(scale, offsetX, offsetY) {
+			const figure = getCurrentFigure();
+			const image = getCurrentImage();
+			if (!figure || !image || scale <= 1) {
+				return { x: 0, y: 0 };
+			}
+
+			const fit = getImageFitSize(image, figure);
+			const maxX = Math.max(0, (fit.width * scale - figure.clientWidth) / 2);
+			const maxY = Math.max(0, (fit.height * scale - figure.clientHeight) / 2);
+
+			return {
+				x: Math.min(maxX, Math.max(-maxX, offsetX)),
+				y: Math.min(maxY, Math.max(-maxY, offsetY)),
+			};
+		}
+
+		function applyZoom() {
+			const figure = getCurrentFigure();
+			const image = getCurrentImage();
+			if (!figure || !image) {
+				return;
+			}
+
+			const clamped = clampZoomOffsets(zoomScale, zoomOffsetX, zoomOffsetY);
+			zoomOffsetX = clamped.x;
+			zoomOffsetY = clamped.y;
+			image.style.transform =
+				"translate(" + zoomOffsetX + "px, " + zoomOffsetY + "px) scale(" + zoomScale + ")";
+
+			figure.classList.toggle("is-zoomed", zoomScale > 1.01);
+			figure.classList.toggle("is-dragging", isDraggingZoom);
+			zoomResetButton.textContent = Math.round(zoomScale * 100) + "%";
+		}
+
+		function resetZoom(silent = false) {
+			zoomScale = 1;
+			zoomOffsetX = 0;
+			zoomOffsetY = 0;
+			isDraggingZoom = false;
+			suppressFigureClick = false;
+			applyZoom();
+
+			if (!silent) {
+				zoomResetButton.blur();
+			}
+		}
+
+		function setZoom(nextScale) {
+			const clampedScale = Math.min(4, Math.max(1, nextScale));
+			if (clampedScale === 1) {
+				resetZoom();
+				return;
+			}
+
+			const scaleRatio = clampedScale / zoomScale;
+			zoomScale = clampedScale;
+			zoomOffsetX *= scaleRatio;
+			zoomOffsetY *= scaleRatio;
+			applyZoom();
+		}
+
+		function handleWheelZoom(event) {
+			if (event.currentTarget !== getCurrentFigure()) {
+				return;
+			}
+
+			event.preventDefault();
+			const nextScale = zoomScale + (event.deltaY < 0 ? 0.2 : -0.2);
+			setZoom(nextScale);
+		}
+
+		function handleZoomPointerDown(event) {
+			if (event.currentTarget !== getCurrentFigure() || zoomScale <= 1 || event.button !== 0) {
+				return;
+			}
+
+			isDraggingZoom = true;
+			suppressFigureClick = false;
+			dragStartX = event.clientX;
+			dragStartY = event.clientY;
+			dragOffsetX = zoomOffsetX;
+			dragOffsetY = zoomOffsetY;
+			event.currentTarget.setPointerCapture(event.pointerId);
+			applyZoom();
+		}
+
+		function handleZoomPointerMove(event) {
+			if (!isDraggingZoom || event.currentTarget !== getCurrentFigure()) {
+				return;
+			}
+
+			if (
+				Math.abs(event.clientX - dragStartX) > 4 ||
+				Math.abs(event.clientY - dragStartY) > 4
+			) {
+				suppressFigureClick = true;
+			}
+
+			zoomOffsetX = dragOffsetX + (event.clientX - dragStartX);
+			zoomOffsetY = dragOffsetY + (event.clientY - dragStartY);
+			applyZoom();
+		}
+
+		function handleZoomPointerUp(event) {
+			if (event.currentTarget !== getCurrentFigure()) {
+				return;
+			}
+
+			isDraggingZoom = false;
+			if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
+				event.currentTarget.releasePointerCapture(event.pointerId);
+			}
+			applyZoom();
+		}
+
+		function updateSlide(index) {
+			if (!activeGallery) {
+				return;
+			}
+
+			const total = activeGallery.slides.length;
+			activeIndex = (index + total) % total;
+			resetZoom(true);
+			track.style.transform = "translateX(-" + activeIndex * 100 + "%)";
+			counter.textContent =
+				String(activeIndex + 1).padStart(2, "0") +
+				" / " +
+				String(total).padStart(2, "0");
+			title.textContent = activeGallery.title;
+			subtitle.textContent = activeGallery.subtitle || "\u00A0";
+
+			Array.from(dots.children).forEach((dot, dotIndex) => {
+				dot.classList.toggle("is-active", dotIndex === activeIndex);
+			});
+
+			Array.from(thumbs.children).forEach((thumb, thumbIndex) => {
+				thumb.classList.toggle("is-active", thumbIndex === activeIndex);
+			});
+
+			preloadNearbySlides();
+		}
+
+		function preloadNearbySlides() {
+			if (!activeGallery) {
+				return;
+			}
+
+			const total = activeGallery.slides.length;
+			[(activeIndex + 1) % total, (activeIndex - 1 + total) % total].forEach((index) => {
+				const image = new Image();
+				image.src = activeGallery.slides[index].src;
+			});
+		}
+
+		function setFilmstrip(open) {
+			filmstripOpen = open;
+			modal.classList.toggle("is-filmstrip-open", open);
+			filmstripToggleButton.textContent = open ? "Hide strip" : "Show strip";
+			filmstripToggleButton.setAttribute("aria-expanded", String(open));
+		}
+
+		function setUIHidden(hidden) {
+			uiHidden = hidden;
+			modal.classList.toggle("is-ui-hidden", hidden);
+			if (hidden) {
+				setFilmstrip(false);
+			}
+		}
+
+		function syncFullscreenButton() {
+			const isFullscreen = document.fullscreenElement === dialog;
+			fullscreenButton.textContent = isFullscreen ? "Exit" : "Full";
+		}
+
+		async function toggleFullscreen() {
+			try {
+				if (document.fullscreenElement === dialog) {
+					await document.exitFullscreen();
+				} else if (dialog.requestFullscreen) {
+					await dialog.requestFullscreen();
+				}
+			} catch (error) {
+				console.error(error);
+			} finally {
+				syncFullscreenButton();
+			}
+		}
+
+		function openGallery(name, startIndex = 0) {
+			if (!galleries[name]) {
+				return;
+			}
+
+			if (closeTimer) {
+				window.clearTimeout(closeTimer);
+			}
+
+			if (activeGalleryName !== name) {
+				renderGallery(name);
+			}
+
+			setUIHidden(false);
+			setFilmstrip(false);
+			modal.hidden = false;
+			body.classList.add("gallery-open");
+			window.requestAnimationFrame(() => {
+				modal.classList.add("is-visible");
+			});
+			updateSlide(startIndex);
+		}
+
+		function closeGallery() {
+			modal.classList.remove("is-visible");
+			body.classList.remove("gallery-open");
+			resetZoom(true);
+			setFilmstrip(false);
+			setUIHidden(false);
+			closeTimer = window.setTimeout(() => {
+				modal.hidden = true;
+			}, 260);
+		}
+
+		openButtons.forEach((button) => {
+			button.addEventListener("click", () => {
+				openGallery(button.dataset.galleryOpen);
+			});
+		});
+
+		closeButtons.forEach((button) => {
+			button.addEventListener("click", closeGallery);
+		});
+
+		prevButton.addEventListener("click", () => updateSlide(activeIndex - 1));
+		nextButton.addEventListener("click", () => updateSlide(activeIndex + 1));
+		fullscreenButton.addEventListener("click", toggleFullscreen);
+		zoomInButton.addEventListener("click", () => setZoom(zoomScale + 0.3));
+		zoomOutButton.addEventListener("click", () => setZoom(zoomScale - 0.3));
+		zoomResetButton.addEventListener("click", () => resetZoom());
+		filmstripToggleButton.addEventListener("click", () => {
+			setUIHidden(false);
+			setFilmstrip(!filmstripOpen);
+		});
+
+		document.addEventListener("keydown", (event) => {
+			if (modal.hidden) {
+				return;
+			}
+
+			if (event.key === "Escape") {
+				closeGallery();
+			}
+
+			if (event.key === "ArrowLeft") {
+				updateSlide(activeIndex - 1);
+			}
+
+			if (event.key === "ArrowRight") {
+				updateSlide(activeIndex + 1);
+			}
+
+			if (event.key.toLowerCase() === "f") {
+				toggleFullscreen();
+			}
+
+			if (event.key.toLowerCase() === "i") {
+				setUIHidden(!uiHidden);
+			}
+		});
+
+		document.addEventListener("fullscreenchange", syncFullscreenButton);
+
+		sliderWindow.addEventListener(
+			"touchstart",
+			(event) => {
+				touchStartX = event.changedTouches[0].clientX;
+			},
+			{ passive: true }
+		);
+
+		sliderWindow.addEventListener(
+			"touchend",
+			(event) => {
+				if (zoomScale > 1.01) {
+					return;
+				}
+				const touchEndX = event.changedTouches[0].clientX;
+				const delta = touchEndX - touchStartX;
+
+				if (Math.abs(delta) < 50) {
+					return;
+				}
+
+				if (delta < 0) {
+					updateSlide(activeIndex + 1);
+				} else {
+					updateSlide(activeIndex - 1);
+				}
+			},
+			{ passive: true }
+		);
+
+	</script>
+</body>
+</html>
