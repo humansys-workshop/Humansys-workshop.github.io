@@ -46,13 +46,13 @@ a {
 
 code {
 	display: inline-block;
-	padding: 0.18rem 0.78rem;
+	padding: 0.12rem 0.62rem;
 	border-radius: 999px;
 	border: 1px solid rgba(29, 36, 33, 0.12);
 	background: rgba(255, 255, 255, 0.86);
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
 	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-	font-size: 0.88em;
+	font-size: 0.8em;
 	line-height: 1.15;
 	color: #2a2f2c;
 }
