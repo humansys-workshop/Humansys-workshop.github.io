@@ -125,10 +125,18 @@ code {
 }
 
 .page-meta,
+.page-subtitle,
 .page-meta-secondary {
 	margin: 0.85rem 0 0;
 	font-size: 1.02rem;
 	color: var(--muted);
+}
+
+.page-subtitle {
+	max-width: 36rem;
+	font-size: 1rem;
+	line-height: 1.35;
+	color: rgba(247, 244, 238, 0.9);
 }
 
 .page-meta {
@@ -1622,6 +1630,12 @@ body.gallery-open {
 
 	.page-head-2026 .page-meta {
 		font-size: 0.96rem;
+		line-height: 1.35;
+	}
+
+	.page-subtitle {
+		max-width: 18.5rem;
+		font-size: 0.9rem;
 		line-height: 1.35;
 	}
 
