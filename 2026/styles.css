@@ -893,6 +893,19 @@ tbody tr:last-child td {
 	margin-top: 1rem;
 }
 
+.tpc-note ul {
+	margin: 0.7rem 0 0;
+	padding-left: 1.2rem;
+	column-count: 2;
+	column-gap: 1.5rem;
+}
+
+.tpc-note li {
+	break-inside: avoid;
+	margin-bottom: 0.58rem;
+	line-height: 1.5;
+}
+
 .archive-grid {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1756,6 +1769,11 @@ body.gallery-open {
 	.tpc-note {
 		margin-top: 0.75rem;
 		padding: 0.95rem 1rem;
+	}
+
+	.tpc-note ul {
+		column-count: 1;
+		padding-left: 1rem;
 	}
 
 	.photo-mosaic {
