@@ -17,6 +17,7 @@
 		<nav class="section-nav" aria-label="Section navigation">
 			<div class="shell">
 				<a href="#overview">Overview</a>
+				<a href="#program">Program</a>
 				<a href="#cfp">CFP</a>
 				<a href="#submission">Submission</a>
 				<a href="#policies">Policies</a>
@@ -71,7 +72,492 @@
 				</div>
 			</section>
 
-			<section id="cfp" class="section section-alt">
+			<section id="program" class="section section-alt">
+				<div class="shell">
+					<header class="section-title">
+						<h2>Program</h2>
+					</header>
+
+					<div class="program-intro">
+						<div class="prose-card program-lede">
+							<p class="program-date">Friday, October 30, 2026 · Austin, Texas, USA</p>
+							<p class="program-format">
+								A single-track day of two keynotes, four technical sessions, and a poster session.
+								Each oral presentation is <strong>8 minutes</strong> followed by <strong>2 minutes</strong>
+								of Q&amp;A; keynotes are 40-minute talks with 10 minutes for discussion.
+							</p>
+						</div>
+						<div class="program-stats" aria-label="Program at a glance">
+							<div class="program-stat">
+								<strong>2</strong>
+								<span>Keynotes</span>
+							</div>
+							<div class="program-stat">
+								<strong>23</strong>
+								<span>Oral talks</span>
+							</div>
+							<div class="program-stat">
+								<strong>10</strong>
+								<span>Posters</span>
+							</div>
+							<div class="program-stat">
+								<strong>4</strong>
+								<span>Sessions</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="program-board" id="program-board" x-data="programExplorer">
+						<div class="program-toolbar">
+							<div class="program-search">
+								<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+									<circle cx="11" cy="11" r="7"></circle>
+									<line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+								</svg>
+								<input
+									type="search"
+									x-model.debounce.150ms="query"
+									aria-label="Search the program by title or author"
+									placeholder="Search titles and authors"
+								/>
+								<button
+									type="button"
+									class="program-search-clear"
+									style="display: none"
+									x-show="isFiltering"
+									@click="query = ''"
+								>
+									Clear
+								</button>
+							</div>
+							<div class="program-bulk">
+								<button type="button" class="program-bulk-button" @click="setAll(true)">Expand all</button>
+								<button type="button" class="program-bulk-button" @click="setAll(false)">Collapse all</button>
+							</div>
+						</div>
+						<p class="program-feedback" style="display: none" x-show="isFiltering" x-text="feedback"></p>
+
+					<div class="program-day">
+						<section class="program-block" aria-labelledby="program-morning">
+							<h3 id="program-morning" class="program-block-label">Morning</h3>
+							<ol class="program-slots">
+								<li class="program-slot program-slot-break">
+									<p class="program-time">8:00–8:30 AM</p>
+									<div>
+										<span class="program-kind program-kind-break">Arrival</span>
+										<p class="program-slot-title">Tea, coffee, and continental breakfast</p>
+									</div>
+								</li>
+								<li class="program-slot">
+									<p class="program-time">8:30–8:40 AM</p>
+									<div>
+										<span class="program-kind">Welcome</span>
+										<p class="program-slot-title">Opening remarks</p>
+									</div>
+								</li>
+								<li class="program-slot program-slot-keynote">
+									<p class="program-time">8:40–9:30 AM</p>
+									<div>
+										<span class="program-kind program-kind-keynote">Keynote</span>
+										<p class="program-slot-title">Keynote 1</p>
+										<p class="program-slot-note">40-minute talk + 10-minute Q&amp;A</p>
+									</div>
+								</li>
+								<li class="program-slot program-slot-session" id="session-1">
+									<p class="program-time">9:30–10:30 AM</p>
+									<div>
+										<span class="program-kind program-kind-session">Session 1</span>
+										<button
+											type="button"
+											class="program-toggle"
+											aria-controls="papers-session-1"
+											:aria-expanded="open['session-1'] ? 'true' : 'false'"
+											@click="toggle('session-1')"
+										>
+											<span class="program-slot-title">Wearable and Physiological Sensing</span>
+											<svg class="program-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+												<polyline points="6 9 12 15 18 9"></polyline>
+											</svg>
+										</button>
+										<p class="program-slot-note">6 oral presentations · 8 min talk + 2 min Q&amp;A</p>
+										<div class="program-papers" id="papers-session-1">
+											<ol class="paper-list">
+												<li>
+													<p class="paper-title">HeadSense: Head Orientation Tracking for AI Wearables using Ultra-Wideband Ranging</p>
+													<p class="paper-authors">A. K. Agrawal, A. Dhekne, R. R. Choudhury</p>
+												</li>
+												<li>
+													<p class="paper-title">ABreath: Bed-Frame-Mounted Vibration Sensing for Noise-Robust Abnormal Breathing Detection</p>
+													<p class="paper-authors">S. Yin, J. Zhang, L. Yang, Y. Rong, L. Qian, P. Zhang, J. Zhu</p>
+												</li>
+												<li>
+													<p class="paper-title">Design and Characterization of an Energy-Aware Embedded System for On-Device Postural Muscle Profiling</p>
+													<p class="paper-authors">J. Reyes, R. Vargas, B. Sanchez, S. Rohal, S. Pan, X. Yu</p>
+												</li>
+												<li>
+													<p class="paper-title">Comparing Self-Supervised Pretraining Methods and Transfer Configurations for Wrist ECG under Motion</p>
+													<p class="paper-authors">Y. Hu, Z. Jia, S. Chen, D. Kelly, M. Zhao, T. Chen, R. Liu, J. Nie</p>
+												</li>
+												<li>
+													<p class="paper-title">RecoverRL: Reliability-Guided Reinforcement Learning for RFID-Based Heartbeat Waveform Recovery</p>
+													<p class="paper-authors">Y. Wang, C. Liu, D. Nguyen, H. Bai, Z. Jiao, S. Mao, X. Wang</p>
+												</li>
+												<li>
+													<p class="paper-title">Optimizing the Duty Cycle in Smartwatches for Sleep Sensing</p>
+													<p class="paper-authors">T. Srivastava, V. Viswanath, Z. Yang, V. Nathan, J. Kuang</p>
+												</li>
+											</ol>
+											<button
+												type="button"
+												class="program-more"
+												aria-controls="papers-session-1"
+												:aria-expanded="open['session-1'] ? 'true' : 'false'"
+												style="display: none"
+												x-show="!isFiltering"
+												@click="toggle('session-1')"
+											>
+												<span x-text="open['session-1'] ? 'Show less' : 'Show all 6 talks'">Show all 6 talks</span>
+												<svg class="program-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+													<polyline points="6 9 12 15 18 9"></polyline>
+												</svg>
+											</button>
+										</div>
+									</div>
+								</li>
+								<li class="program-slot program-slot-break">
+									<p class="program-time">10:30–11:00 AM</p>
+									<div>
+										<span class="program-kind program-kind-break">Break</span>
+										<p class="program-slot-title">Coffee break</p>
+									</div>
+								</li>
+								<li class="program-slot program-slot-session" id="session-2">
+									<p class="program-time">11:00 AM–12:10 PM</p>
+									<div>
+										<span class="program-kind program-kind-session">Session 2</span>
+										<button
+											type="button"
+											class="program-toggle"
+											aria-controls="papers-session-2"
+											:aria-expanded="open['session-2'] ? 'true' : 'false'"
+											@click="toggle('session-2')"
+										>
+											<span class="program-slot-title">Human Activity, Gait, and RF Sensing</span>
+											<svg class="program-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+												<polyline points="6 9 12 15 18 9"></polyline>
+											</svg>
+										</button>
+										<p class="program-slot-note">7 oral presentations · 8 min talk + 2 min Q&amp;A</p>
+										<div class="program-papers" id="papers-session-2">
+											<ol class="paper-list">
+												<li>
+													<p class="paper-title">mmSketcher: Physics-Grounded and Editable Scenes for mmWave Human-Sensing Simulation</p>
+													<p class="paper-authors">S. Lu, T. Toha, S. Nirjon</p>
+												</li>
+												<li>
+													<p class="paper-title">HERO: Human-Centered, Environment-Aware Optimization for Designing Gait Sensing Under Requirement Uncertainty</p>
+													<p class="paper-authors">A. Green, Y. Li, S. Billington, Y. Dong</p>
+												</li>
+												<li>
+													<p class="paper-title">RadarAgent: Agentic Tool Utilization for Radar-to-Language Understanding</p>
+													<p class="paper-authors">S. He, Y. Gao, R. Nandakumar</p>
+												</li>
+												<li>
+													<p class="paper-title">Generating Human Pose and Activity Videos from Wearable Ultra-Wideband Sensors</p>
+													<p class="paper-authors">T. Toha, Z. Wang, D. Jagadeesh, G. Zhang, T. Chen, S. Nirjon</p>
+												</li>
+												<li>
+													<p class="paper-title">Open-World Continuous Human Activity Recognition with Novel Class Discovery</p>
+													<p class="paper-authors">J. Jiang, E. Thomaz</p>
+												</li>
+												<li>
+													<p class="paper-title">CausalGait: Towards Personalized Gait Interpretation via Causality-Informed Knowledge Graphs</p>
+													<p class="paper-authors">M. Ma, M. Yang, K. Clewes, E. Lowe, J. Rose, Y. Dong</p>
+												</li>
+												<li>
+													<p class="paper-title">Only Speaking FACTs: Foundation Models for Activity-Centric Timeline Description</p>
+													<p class="paper-authors">D. Lee, T. Patil, S. Pan, A. Weakley</p>
+												</li>
+											</ol>
+											<button
+												type="button"
+												class="program-more"
+												aria-controls="papers-session-2"
+												:aria-expanded="open['session-2'] ? 'true' : 'false'"
+												style="display: none"
+												x-show="!isFiltering"
+												@click="toggle('session-2')"
+											>
+												<span x-text="open['session-2'] ? 'Show less' : 'Show all 7 talks'">Show all 7 talks</span>
+												<svg class="program-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+													<polyline points="6 9 12 15 18 9"></polyline>
+												</svg>
+											</button>
+										</div>
+									</div>
+								</li>
+								<li class="program-slot">
+									<p class="program-time">12:10–12:15 PM</p>
+									<div>
+										<span class="program-kind">Transition</span>
+										<p class="program-slot-title">Announcements</p>
+									</div>
+								</li>
+							</ol>
+						</section>
+
+						<div class="program-lunch" role="note">
+							<p class="program-time">12:15–1:30 PM</p>
+							<p class="program-slot-title">Lunch break</p>
+						</div>
+
+						<section class="program-block" aria-labelledby="program-afternoon">
+							<h3 id="program-afternoon" class="program-block-label">Afternoon</h3>
+							<ol class="program-slots">
+								<li class="program-slot program-slot-keynote">
+									<p class="program-time">1:30–2:20 PM</p>
+									<div>
+										<span class="program-kind program-kind-keynote">Keynote</span>
+										<p class="program-slot-title">Keynote 2</p>
+										<p class="program-slot-note">40-minute talk + 10-minute Q&amp;A</p>
+									</div>
+								</li>
+								<li class="program-slot program-slot-session" id="session-3">
+									<p class="program-time">2:20–3:30 PM</p>
+									<div>
+										<span class="program-kind program-kind-session">Session 3</span>
+										<button
+											type="button"
+											class="program-toggle"
+											aria-controls="papers-session-3"
+											:aria-expanded="open['session-3'] ? 'true' : 'false'"
+											@click="toggle('session-3')"
+										>
+											<span class="program-slot-title">Human-Centered AI and Intelligent Sensing Systems</span>
+											<svg class="program-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+												<polyline points="6 9 12 15 18 9"></polyline>
+											</svg>
+										</button>
+										<p class="program-slot-note">7 oral presentations · 8 min talk + 2 min Q&amp;A</p>
+										<div class="program-papers" id="papers-session-3">
+											<ol class="paper-list">
+												<li>
+													<p class="paper-title">HumanSpeech-TeleOp: Human-in-the-Loop Edge-IoT Framework for Speech and LLM-Driven Robot Teleoperation and Object Detection</p>
+													<p class="paper-authors">H. Nambiappan, C. Song, A. Truong, F. Makedon</p>
+												</li>
+												<li>
+													<p class="paper-title">HotRGB: Temperature Aware RGB-to-Thermal Training Data for Drive-by Urban People Detection</p>
+													<p class="paper-authors">T. Fernandez, Y. Chang, C. Codling, J. Zhang, J. Gersey, N. Sochocki, S. Ganti, J. Aggarwal, J. Ko, H. Noh, L. Junghans, P. Zhang</p>
+												</li>
+												<li>
+													<p class="paper-title">FollowMe: Automating Precise Image Annotation Across Various Environments</p>
+													<p class="paper-authors">S. Xia, J. Du, C. Peng</p>
+												</li>
+												<li>
+													<p class="paper-title">Evidence-Grounded Mapping of Multimodal Human Sensing to Psychological Transdiagnostic Dimensions</p>
+													<p class="paper-authors">X. Hu, X. Xue, Y. Lyu, H. Shao, J. Nie</p>
+												</li>
+												<li>
+													<p class="paper-title">When Not to Diagnose: Evaluating Evidence-Sufficiency Recognition in ECG Multimodal Language Models with ECGTrustBench</p>
+													<p class="paper-authors">Q. Huang, J. Jiang, F. Syed, A. Riaz, Y. Chen, J. Nie</p>
+												</li>
+												<li>
+													<p class="paper-title">GREAF: Graph-based Real-time Anomaly Detection via Forecasting for IoT-Enabled Indoor Spaces</p>
+													<p class="paper-authors">M. Tanvir, F. Irfan, R. Iqbal</p>
+												</li>
+												<li>
+													<p class="paper-title">Will My Assistant Remember My Allergy? What Personal LLM Assistants Forget When Conversation Memory Is Compressed</p>
+													<p class="paper-authors">L. Zhu, Y. Lin, Y. Wang, Y. Liu, H. Li, Y. Chen</p>
+												</li>
+											</ol>
+											<button
+												type="button"
+												class="program-more"
+												aria-controls="papers-session-3"
+												:aria-expanded="open['session-3'] ? 'true' : 'false'"
+												style="display: none"
+												x-show="!isFiltering"
+												@click="toggle('session-3')"
+											>
+												<span x-text="open['session-3'] ? 'Show less' : 'Show all 7 talks'">Show all 7 talks</span>
+												<svg class="program-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+													<polyline points="6 9 12 15 18 9"></polyline>
+												</svg>
+											</button>
+										</div>
+									</div>
+								</li>
+								<li class="program-slot program-slot-break">
+									<p class="program-time">3:30–4:00 PM</p>
+									<div>
+										<span class="program-kind program-kind-break">Break</span>
+										<p class="program-slot-title">Coffee break and poster setup</p>
+									</div>
+								</li>
+								<li class="program-slot program-slot-poster" id="poster-session">
+									<p class="program-time">4:00–4:50 PM</p>
+									<div>
+										<span class="program-kind program-kind-poster">Posters</span>
+										<button
+											type="button"
+											class="program-toggle"
+											aria-controls="papers-poster-session"
+											:aria-expanded="open['poster-session'] ? 'true' : 'false'"
+											@click="toggle('poster-session')"
+										>
+											<span class="program-slot-title">Poster session and networking</span>
+											<svg class="program-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+												<polyline points="6 9 12 15 18 9"></polyline>
+											</svg>
+										</button>
+										<p class="program-slot-note">10 posters</p>
+										<div class="program-papers" id="papers-poster-session">
+											<ol class="paper-list paper-list-poster">
+												<li>
+													<p class="paper-title">Vision: HomeLM for Ambient Intelligence in the Smart Home</p>
+													<p class="paper-authors">A. Agrawal</p>
+												</li>
+												<li>
+													<p class="paper-title">Out-of-Clinic Measurement of Time-Domain Gait Parameters From Low-Frame-Rate Videos</p>
+													<p class="paper-authors">Y. Fu, Y. Luo, S. Ndiaye, C. Xu</p>
+												</li>
+												<li>
+													<p class="paper-title">Harnessing Agent Capabilities to Integrate Human Demands into Energy Infrastructure Operations</p>
+													<p class="paper-authors">T. Zhou, J. Wen, J. Yang</p>
+												</li>
+												<li>
+													<p class="paper-title">From Community Feedback to Measurement Redesign: Iterating mRehab for Accessible Home-Based Stroke Rehabilitation</p>
+													<p class="paper-authors">E. Liu, K. Dandapat, T. Master, A. Das, A. Gherardi, W. Bo, L. Cavuoto, S. Bhattachariya, H. Subryan, W. Ji, W. Xu</p>
+												</li>
+												<li>
+													<p class="paper-title">Exploring Privacy Risks of Inertial Sensing on Wearable Rings: A Feasibility Study on Keystroke Classification</p>
+													<p class="paper-authors">C. Arvonen, N. Maldei-Stumm, A. Chatterjee, A. Jain, S. Sanghavi, E. Thomaz</p>
+												</li>
+												<li>
+													<p class="paper-title">FocusSync: A Multisensory Audio–Visual–Haptic Stimulation System for Attention Support</p>
+													<p class="paper-authors">N. Anjum, C. Cao, C. Shultz, Y. Dong</p>
+												</li>
+												<li>
+													<p class="paper-title">Contact-Free Continuous ABP Waveform Reconstruction via Triaxial Bodyseismography</p>
+													<p class="paper-authors">Y. Wu, Y. Zhang, Y. Zhang, J. Li, F. Dou, W. Song, H. Noh</p>
+												</li>
+												<li>
+													<p class="paper-title">Separating Safety from Preference in Clinical LLM Evaluation</p>
+													<p class="paper-authors">K. Dandapat, T. Master, A. Das, W. Bo, M. Lei, E. Liu, L. Cavuoto, S. Bhattachariya, H. Subryan, W. Xu</p>
+												</li>
+												<li>
+													<p class="paper-title">A Real-World Study of Sport-Based Support for Autism Spectrum Disorder</p>
+													<p class="paper-authors">H. Yang, E. Liu, X. Zhang, W. Bo, Y. Wu, Y. Liu, Q. Xie, W. Xu</p>
+												</li>
+												<li>
+													<p class="paper-title">Comparing Three On-Device Classifier Deployments for Ring Microgesture Recognition</p>
+													<p class="paper-authors">Y. Du, E. Thomaz</p>
+												</li>
+											</ol>
+											<button
+												type="button"
+												class="program-more"
+												aria-controls="papers-poster-session"
+												:aria-expanded="open['poster-session'] ? 'true' : 'false'"
+												style="display: none"
+												x-show="!isFiltering"
+												@click="toggle('poster-session')"
+											>
+												<span x-text="open['poster-session'] ? 'Show less' : 'Show all 10 posters'">Show all 10 posters</span>
+												<svg class="program-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+													<polyline points="6 9 12 15 18 9"></polyline>
+												</svg>
+											</button>
+										</div>
+									</div>
+								</li>
+								<li class="program-slot program-slot-session" id="session-4">
+									<p class="program-time">4:50–5:20 PM</p>
+									<div>
+										<span class="program-kind program-kind-session">Session 4</span>
+										<button
+											type="button"
+											class="program-toggle"
+											aria-controls="papers-session-4"
+											:aria-expanded="open['session-4'] ? 'true' : 'false'"
+											@click="toggle('session-4')"
+										>
+											<span class="program-slot-title">Acoustic and Audio Sensing</span>
+											<svg class="program-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+												<polyline points="6 9 12 15 18 9"></polyline>
+											</svg>
+										</button>
+										<p class="program-slot-note">3 oral presentations · 8 min talk + 2 min Q&amp;A</p>
+										<div class="program-papers" id="papers-session-4">
+											<ol class="paper-list">
+												<li>
+													<p class="paper-title">HearFocus: Low-Latency Speech Separation for User-Focused Listening</p>
+													<p class="paper-authors">H. Zhao, K. Shen, H. Li</p>
+												</li>
+												<li>
+													<p class="paper-title">RAST: Resolution-Aware Privileged Structure Transfer for Low-Resolution Audio Activity Recognition</p>
+													<p class="paper-authors">J. Park, G. Gudur, Y. Shen, D. Liang, E. Thomaz</p>
+												</li>
+												<li>
+													<p class="paper-title">Identifying Office Door Closing from Acoustic and Vibration Data</p>
+													<p class="paper-authors">B. Fengler, A. Reinhardt</p>
+												</li>
+											</ol>
+											<button
+												type="button"
+												class="program-more"
+												aria-controls="papers-session-4"
+												:aria-expanded="open['session-4'] ? 'true' : 'false'"
+												style="display: none"
+												x-show="!isFiltering"
+												@click="toggle('session-4')"
+											>
+												<span x-text="open['session-4'] ? 'Show less' : 'Show all 3 talks'">Show all 3 talks</span>
+												<svg class="program-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+													<polyline points="6 9 12 15 18 9"></polyline>
+												</svg>
+											</button>
+										</div>
+									</div>
+								</li>
+								<li class="program-slot">
+									<p class="program-time">5:20–5:30 PM</p>
+									<div>
+										<span class="program-kind">Closing</span>
+										<p class="program-slot-title">Awards and closing remarks</p>
+									</div>
+								</li>
+							</ol>
+						</section>
+					</div>
+
+					</div>
+					<script>
+						(function () {
+							var board = document.getElementById('program-board');
+							if (!board) return;
+
+							board.classList.add('is-enhanced');
+
+							var rows = Array.prototype.slice.call(board.querySelectorAll('.program-slot[id]'));
+							var deepLink = window.location.hash.slice(1);
+							var expanded = rows.filter(function (row) {
+								return row.id === deepLink;
+							})[0] || rows[0];
+
+							rows.forEach(function (row) {
+								row.classList.toggle('is-open', row === expanded);
+							});
+
+							window.setTimeout(function () {
+								if (!window.Alpine) board.classList.remove('is-enhanced');
+							}, 3000);
+						})();
+					</script>
+				</div>
+			</section>
+
+			<section id="cfp" class="section">
 			<div class="shell">
 				<header class="section-title">
 					<h2>Call for Papers</h2>
@@ -124,7 +610,7 @@
 			</div>
 		</section>
 
-		<section id="submission" class="section">
+		<section id="submission" class="section section-alt">
 			<div class="shell">
 				<header class="section-title">
 					<h2>Submission</h2>
@@ -205,7 +691,7 @@
 			</div>
 			</section>
 
-		<section id="policies" class="section section-alt">
+		<section id="policies" class="section">
 			<div class="shell">
 				<header class="section-title">
 					<h2>Policies</h2>
@@ -321,8 +807,18 @@
 				</header>
 				<div class="note-card">
 					<p>
-						HumanSys 2026 will be held in Austin, Texas, USA. Additional venue details and local
-						information will be posted here once they are confirmed.
+						HumanSys 2026 is co-located with ACM MobiCom 2026 in Austin, Texas, USA, and shares its venue.
+						Please refer to the MobiCom venue page for the conference hotel, travel, and local information.
+					</p>
+					<p class="external-link">
+						<a href="https://sigmobile.org/mobicom/2026/venue.html" target="_blank" rel="noreferrer">
+							ACM MobiCom 2026 venue information
+							<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+								<path d="M14 4h6v6"></path>
+								<path d="M20 4l-9 9"></path>
+								<path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+							</svg>
+						</a>
 					</p>
 				</div>
 			</div>
@@ -335,8 +831,18 @@
 				</header>
 				<div class="note-card">
 					<p>
-						Registration and attendance information will be added here once ACM MobiCom 2026 registration
-						details are available.
+						Workshop attendance is handled through ACM MobiCom 2026 registration. Please refer to the
+						MobiCom registration page for rates, deadlines, and the registration form.
+					</p>
+					<p class="external-link">
+						<a href="https://sigmobile.org/mobicom/2026/registration.html" target="_blank" rel="noreferrer">
+							ACM MobiCom 2026 registration
+							<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+								<path d="M14 4h6v6"></path>
+								<path d="M20 4l-9 9"></path>
+								<path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path>
+							</svg>
+						</a>
 					</p>
 				</div>
 			</div>
@@ -354,5 +860,173 @@
 				<a class="footer-link" href="../index.html">Back to workshop editions</a>
 			</div>
 		</footer>
+
+	<script>
+		(function () {
+			var nav = document.querySelector('.section-nav');
+			if (!nav) return;
+
+			var strip = nav.querySelector('.shell');
+			var links = Array.prototype.slice.call(strip.querySelectorAll('a[href^="#"]'));
+			var sections = links
+				.map(function (link) {
+					return document.getElementById(link.getAttribute('href').slice(1));
+				})
+				.filter(Boolean);
+
+			function updateEdges() {
+				var scrollable = strip.scrollWidth - strip.clientWidth;
+				nav.classList.remove('at-start', 'in-middle', 'at-end');
+				if (scrollable < 8) return;
+				if (strip.scrollLeft < 8) nav.classList.add('at-start');
+				else if (strip.scrollLeft > scrollable - 8) nav.classList.add('at-end');
+				else nav.classList.add('in-middle');
+			}
+
+			var current = null;
+
+			function setCurrent(id) {
+				if (id === current) return;
+				current = id;
+
+				links.forEach(function (link) {
+					var isCurrent = link.getAttribute('href') === '#' + id;
+					link.classList.toggle('is-current', isCurrent);
+					if (isCurrent && window.matchMedia('(max-width: 720px)').matches) {
+						link.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+					}
+				});
+			}
+
+			function updateCurrent() {
+				if (!sections.length) return;
+
+				var probe = nav.getBoundingClientRect().height + 28;
+				var atPageEnd = window.innerHeight + window.scrollY >= document.body.scrollHeight - 4;
+				var active = atPageEnd ? sections[sections.length - 1] : sections[0];
+
+				if (!atPageEnd) {
+					sections.forEach(function (section) {
+						if (section.getBoundingClientRect().top <= probe) active = section;
+					});
+				}
+
+				setCurrent(active.id);
+			}
+
+			var queued = false;
+
+			function onScroll() {
+				if (queued) return;
+				queued = true;
+				window.requestAnimationFrame(function () {
+					queued = false;
+					updateCurrent();
+				});
+			}
+
+			strip.addEventListener('scroll', updateEdges, { passive: true });
+			window.addEventListener('scroll', onScroll, { passive: true });
+			window.addEventListener('resize', function () {
+				updateEdges();
+				updateCurrent();
+			});
+
+			updateEdges();
+			updateCurrent();
+		})();
+
+		document.addEventListener('alpine:init', function () {
+			Alpine.data('programExplorer', function () {
+				var rows = [];
+
+				return {
+					query: '',
+					matches: 0,
+					open: {
+						'session-1': true,
+						'session-2': false,
+						'session-3': false,
+						'poster-session': false,
+						'session-4': false,
+					},
+
+					init: function () {
+						rows = Array.prototype.slice.call(this.$root.querySelectorAll('.program-slot[id]')).map(function (row) {
+							return {
+								id: row.id,
+								el: row,
+								papers: Array.prototype.slice.call(row.querySelectorAll('.paper-list > li')).map(function (paper) {
+									return {
+										el: paper,
+										text: paper.textContent.replace(/\s+/g, ' ').trim().toLowerCase(),
+									};
+								}),
+							};
+						});
+
+						var deepLink = window.location.hash.slice(1);
+						if (Object.prototype.hasOwnProperty.call(this.open, deepLink)) {
+							this.setAll(false);
+							this.open[deepLink] = true;
+						}
+
+						this.$watch('query', this.render.bind(this));
+						this.$watch('open', this.render.bind(this));
+						this.render();
+					},
+
+					get isFiltering() {
+						return this.query.trim().length > 0;
+					},
+
+					get feedback() {
+						var term = this.query.trim();
+						if (!this.matches) return 'No presentations match “' + term + '”.';
+							return this.matches + (this.matches === 1 ? ' presentation matches “' : ' presentations match “') + term + '”.';
+					},
+
+					toggle: function (id) {
+						this.open[id] = !this.open[id];
+					},
+
+					setAll: function (value) {
+						var open = this.open;
+						Object.keys(open).forEach(function (id) {
+							open[id] = value;
+						});
+					},
+
+					render: function () {
+						var term = this.query.trim().toLowerCase();
+						var open = this.open;
+						var matches = 0;
+
+						rows.forEach(function (row) {
+							var hits = 0;
+
+							row.papers.forEach(function (paper) {
+								var hit = !term || paper.text.indexOf(term) !== -1;
+								paper.el.hidden = !hit;
+								if (hit && term) hits += 1;
+							});
+
+							matches += hits;
+							row.el.classList.toggle('is-open', term ? hits > 0 : !!open[row.id]);
+							row.el.classList.toggle('is-dimmed', !!term && hits === 0);
+						});
+
+						this.matches = matches;
+					},
+				};
+			});
+		});
+	</script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/alpinejs@3.17.3/dist/cdn.min.js"
+		integrity="sha384-/7syvHwR9PpZbxOwOnlTTl4DepN0R0q9aiGAu+D0AcTtZXmrNw0zgp+TzUlPgDx2"
+		crossorigin="anonymous"
+		defer
+	></script>
 </body>
 </html>
