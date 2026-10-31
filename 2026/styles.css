@@ -1448,6 +1448,27 @@ tbody tr:last-child td {
 	margin-top: 1rem;
 }
 
+.awards-list li strong {
+	color: var(--accent-deep);
+}
+
+.awards-list .awards-paper-title {
+	color: var(--ink);
+	line-height: 1.45;
+}
+
+.awards-list .paper-authors,
+.awards-list .awards-presenter {
+	grid-column: auto;
+}
+
+.awards-list .awards-presenter {
+	margin: 0;
+	color: var(--muted);
+	font-size: 0.92rem;
+	line-height: 1.45;
+}
+
 .tpc-note ul {
 	margin: 0.7rem 0 0;
 	padding-left: 1.2rem;
